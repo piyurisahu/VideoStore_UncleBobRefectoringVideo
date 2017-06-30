@@ -1,4 +1,4 @@
-package java;
+package com.piyuri.java;
 
 public class Movie {
 	

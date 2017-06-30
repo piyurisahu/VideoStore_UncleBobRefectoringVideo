@@ -1,16 +1,19 @@
-package java;
+package com.piyuri.java;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
-public class Customer {
+public class Statement {
 
-	private String name;
+	private String customerName;
 	private Vector rentals=new Vector();
+	private double totalAmount ;
+	private int frequentRenterPoint;
 
-	public Customer(String name) {
+	public Statement(String name) {
 		super();
-		this.name = name;
+		this.customerName = name;
+		frequentRenterPoint = 0;
 	}
 
 
@@ -19,10 +22,9 @@ public class Customer {
 		rentals.addElement(rental);
 	}
 
-	public String statement()
-	{
-		double totalAmount=0;
-		int frequentRenterPoint=0;
+	public String generater()
+	{ 	totalAmount=0;
+		frequentRenterPoint=0;
 		Enumeration rentals=this.rentals.elements();
 		String result="Rental Records for "+getName()+"\n";
 
@@ -58,7 +60,7 @@ public class Customer {
 			
 			result+="you owned"+String.valueOf(totalAmount)+"\n";
 			result+="you earned"+String.valueOf(frequentRenterPoint)+"frequent renter points\n";
-			
+			System.out.println(totalAmount +"  "+frequentRenterPoint);
 			
 		}
 		return result;
@@ -69,7 +71,19 @@ public class Customer {
 
 	private String getName() {
 		// TODO Auto-generated method stub
-		return this.name;
+		return this.customerName;
+	}
+
+
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return totalAmount;
+	}
+
+
+	public int getFrequentRenterpoint() {
+		// TODO Auto-generated method stub
+		return frequentRenterPoint;
 	}
 
 
